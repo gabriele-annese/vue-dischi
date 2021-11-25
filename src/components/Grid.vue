@@ -12,17 +12,19 @@
               />
           </div>
       </div>
-     <div v-else >Loading...</div>
+     <Loader v-else />
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import Card from '@/components/Card.vue'
+import Loader from '@/components/Loader.vue'
 export default {
    name: 'Grid',
    components:{
-       Card
+       Card,
+       Loader,
    },
    data(){
        return{
@@ -34,14 +36,16 @@ export default {
    },
    methods:{
        getMusic(){
-           axios
-           .get('https://flynn.boolean.careers/exercises/api/array/music')
-           .then(result =>{
-               console.log(result.data)
-               this.musicList = result.data.response
-               console.log(this.musicList)
-           })
-           .catch (err => console.log(err))
+           setTimeout(() => {
+               axios
+               .get('https://flynn.boolean.careers/exercises/api/array/music')
+               .then(result =>{
+                   console.log(result.data)
+                   this.musicList = result.data.response
+                   console.log(this.musicList)
+               })
+               .catch (err => console.log(err))
+           }, 4000);
        }
    }
 }
@@ -59,6 +63,5 @@ export default {
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
-    
 }
 </style>
