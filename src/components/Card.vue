@@ -9,7 +9,7 @@
             <span class="year">
                 {{year}}
             </span>
-            <span class="genre">
+            <span class="genre d-block fs-5">
                 {{Text}}
             </span>
         </div>
@@ -29,5 +29,8 @@ props:{
 </script>
 
 <style lang="scss" scoped>
-
+.year,
+.author{
+    color: lightgrey;
+}
 </style>

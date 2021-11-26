@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import Card from '@/components/Card.vue'
 import Loader from '@/components/Loader.vue'
 export default {
@@ -26,28 +25,9 @@ export default {
        Card,
        Loader,
    },
-   data(){
-       return{
-           musicList: null,
-       };
+   props:{
+       musicList: Array,
    },
-   created(){
-       this.getMusic();
-   },
-   methods:{
-       getMusic(){
-           setTimeout(() => {
-               axios
-               .get('https://flynn.boolean.careers/exercises/api/array/music')
-               .then(result =>{
-                   console.log(result.data)
-                   this.musicList = result.data.response
-                   console.log(this.musicList)
-               })
-               .catch (err => console.log(err))
-           }, 4000);
-       }
-   }
 }
 </script>
 
