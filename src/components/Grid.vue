@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-      <div v-if="musicList !== null" class="row p-3 justify-content-center">
-          <div  v-for="(elMusic, index) in musicList" :key="`elMusic-${index}`"
+      <div v-if="musicArray !== null" class="row p-3 justify-content-center">
+          <div  v-for="(elMusic, index) in musicArray" :key="`elMusic-${index}`"
           class="col-6 col-md-4 col-lg-3 mb-5 p-2 m-2 card-music text-center ">
            <img :src="elMusic.poster" :alt="elMusic.title">
               <Card 
@@ -26,7 +26,7 @@ export default {
        Loader,
    },
    props:{
-       musicList: Array,
+       musicArray: Array,
    },
 }
 </script>

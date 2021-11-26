@@ -6,7 +6,7 @@
       </div>
       <div>
         <select 
-            class="form-select " aria-label="Default select example" v-model="generes"  @change="changeGen">
+            class="form-select " aria-label="Default select example" v-model="generes"  @change="$emit ('changeGen', generes)">
                 <option value="">All genre</option>
                 <option value="Rock">Rock</option>
                 <option value="Pop">Pop</option>
@@ -25,11 +25,6 @@ data(){
         generes: ''
     };
 },
-methods:{
-    changeGen(){
-        console.log(this.generes)
-    }
-}
 }
 </script>
 

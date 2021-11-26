@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header />
+    <Header  @changeGen="selectGen"/>
     <main>
-      <Grid :musicList="musicList"/>
+      <Grid :musicArray="musicList"/>
     </main>
   </div>
 </template>
@@ -20,7 +20,17 @@ export default {
   data(){
        return{
            musicList: null,
+           textGen: '',
        };
+   },
+   computed:{
+     filterGen(){
+       if(this.textGen === ""){
+         return this.musicList
+       }
+
+       return '';
+      }
    },
    created(){
        this.getMusic();
@@ -37,7 +47,10 @@ export default {
                })
                .catch (err => console.log(err))
            }, 2000);
-       }
+       },
+       selectGen(text){
+         this.textGen = text;
+       },
    }
 }
 </script>
