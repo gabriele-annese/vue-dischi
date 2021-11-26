@@ -2,7 +2,7 @@
   <div id="app">
     <Header  @changeGen="selectGen"/>
     <main>
-      <Grid :musicArray="musicList"/>
+      <Grid :musicArray="filterGen"/>
     </main>
   </div>
 </template>
@@ -23,13 +23,15 @@ export default {
            textGen: '',
        };
    },
-   computed:{
-     filterGen(){
-       if(this.textGen === ""){
-         return this.musicList
-       }
+  computed:{
+    filterGen(){
+      if(this.textGen === ""){
+        return this.musicList
+      }
 
-       return '';
+       return this.musicList.filter(item =>{
+              return item.genre.includes( this.textGen )
+       });
       }
    },
    created(){
@@ -56,6 +58,11 @@ export default {
 </script>
 
 <style lang="scss">
+html{
+  width: 100%;
+  height: 100%;
+  background-color: #1d2d3c;
+}
 main{
   background-color: #1d2d3c;
 }

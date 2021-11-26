@@ -1,12 +1,14 @@
 <template>
-  <header  
+  <header
         class="p-2 d- d-flex justify-content-between align-items-center">
+
       <div class="logo">
          <img src="@/assets/logo (1).png" alt="">
       </div>
       <div>
         <select 
-            class="form-select " aria-label="Default select example" v-model="generes"  @change="$emit ('changeGen', generes)">
+            class="form-select " aria-label="Default select example" v-model="generes"  @change="$emit ('changeGen', generes)"
+            >
                 <option value="">All genre</option>
                 <option value="Rock">Rock</option>
                 <option value="Pop">Pop</option>
